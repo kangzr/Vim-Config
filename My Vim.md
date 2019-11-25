@@ -83,7 +83,7 @@ let g:ycm_global_ycm_extra_conf="~/.vim/bundle/YouCompleteMe/.ycm_extra_conf.py"
 
 ##### ag
 
-内容搜索神器ag， 搜索速度极快: ag>ack>grep(据说)
+内容搜索神器ag， 搜索速度极快: ag>ack>grep
 
 1)  安装
 
@@ -373,7 +373,7 @@ touch flake8
 ignore = W191,E501,E117,E241     
 ```
 
-到此，用到的相关插件已经介绍完毕，如果有什么更好的插件，欢迎补充和分享
+到此，用到的相关插件已经介绍完毕，如果有什么更好的插件，欢迎补充
 
 #### 三 基本设置
 
