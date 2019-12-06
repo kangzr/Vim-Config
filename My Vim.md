@@ -230,6 +230,9 @@ let g:ctrlsf_default_view_mode = 'compact'  # 下方紧凑列出 可以通过M�
 map <C-k> :CtrlSF<CR>  # 会自动搜索光标处单词
 # normal模式下 会帮你输入:CtrlSF    切记不要加<CR> 然后你可以直接输入你想要搜索的字符串
 nnoremap <C-\> :CtrlSF 
+
+# 忽略文件夹data
+CtrlSF MaxTarget -ignoredir "data"
 ```
 
 ##### 函数跳转与代码预览
@@ -375,6 +378,16 @@ ignore = W191,E501,E117,E241
 
 到此，用到的相关插件已经介绍完毕，如果有什么更好的插件，欢迎补充
 
+##### 显示与当前光标相同的word
+
+##### vim-cursorword
+
+```shell
+https://github.com/itchyny/vim-cursorword
+```
+
+
+
 #### 三 基本设置
 
 ```shell
@@ -402,6 +415,13 @@ filetype indent plugin on
 # map imap noremap inoremap
 noremap normal模式(不会递归映射)
 inoremap insert模式
+# vim配色
+source /usr/share/vim/vim80/colors/slate.vim
+# 设置高亮配色
+hi Search cterm=NONE
+hi Search ctermfg=black
+hi Search ctermbg=lightyellow
+
 # 其他设置根据需求设定
 
 ```
@@ -423,15 +443,30 @@ ctrl + b : 向下翻页
 ctrl + u : 向上翻半页
 ctrl + d : 向下翻半页
 
+zz/zt/zb: scroll midlle top bottom
+
 # 删除复制
 D - 删除光标至行尾
+d^ - 删除光标至行首(不删除tab)
+d0 - 删除光标至行首(删除tab)
 s - 修改当前光标下字符
 S - 修改一整行
+
 yaw - 复制整个单词
 daw - 删除整个单词
+caw - 删除整个单词，进入instert模式
+
 ngg/gG - 跳转到n行
 
 ve - 选中整个单词 (光标位于词首，用于复制替换某个的单词)
+
+# 括号操作['"
+ci/yi/di/va  (不包括括号)
+ca/ya/da/va  (包括括号)
+
+# 重复输入n个*
+1. normal模式, 输入n
+2. insert模式, 输入*, ESC即可
 
 ```
 
