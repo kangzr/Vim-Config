@@ -356,8 +356,8 @@ git clone https://github.com/scrooloose/nerdtree.git ~/.vim/bundle/nerdtree
 Pythoner必备
 
 ```shell
-1. Install syntastic (静态语法检查，不只是python)
-	Plugin 'scrooloose/syntastic'
+1. Install syntastic (静态语法检查，不只是python, 这个插件会让vim wrriten很慢。。。。禁用。。。使用python-synstic)
+	Plugin 'scrooloose/syntastic'   
 2. Install flake8
 	sudo apt install python-flake8  # python2
     sudo apt install flake8  # python3
@@ -375,6 +375,15 @@ touch flake8
 [flake8]
 ignore = W191,E501,E117,E241     
 ```
+
+python-syntax
+
+```
+https://github.com/vim-python/python-syntax
+
+```
+
+
 
 到此，用到的相关插件已经介绍完毕，如果有什么更好的插件，欢迎补充
 
@@ -415,12 +424,20 @@ filetype indent plugin on
 # map imap noremap inoremap
 noremap normal模式(不会递归映射)
 inoremap insert模式
-# vim配色
-source /usr/share/vim/vim80/colors/slate.vim
+
 # 设置高亮配色
 hi Search cterm=NONE
-hi Search ctermfg=black
-hi Search ctermbg=lightyellow
+hi Search ctermfg=black  (15)
+hi Search ctermbg=lightyellow  (70)
+# 设置背景和前景颜色
+:highlight Normal ctermfg ctermbg
+# 主题调整
+git clone https://github.com/rafi/awesome-vim-colorschemes
+colorscheme name  # 而不需要自己瞎配置
+
+
+# 折叠代码
+set foldmethod=indent
 
 # 其他设置根据需求设定
 
@@ -468,9 +485,26 @@ ca/ya/da/va  (包括括号)
 1. normal模式, 输入n
 2. insert模式, 输入*, ESC即可
 
+# 折叠快捷键
+za: Toggle code folding at the current line. The block that the current line belongs to is folded (closed) or unfolded (opened).
+zo: Open fold.
+zc: Close fold.
+zR: Open all folds.
+zM: Close all folds.
 ```
 
-以上，欢迎大家分享补充，工欲善其事必先利其器，VIM很强大，如果你玩的6
+##### 排查Vim慢的方法
+
+```shell
+:profile start profile.log
+:profile func *
+:profile file *
+" At this point do slow actions
+:profile pause
+:noautocmd qall!
+```
+
+以上，欢迎大家分享补充，工欲善其事必先利其器，VIM很强大
 
 
 
