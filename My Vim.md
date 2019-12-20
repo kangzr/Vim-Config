@@ -234,6 +234,12 @@ let g:ctrlsf_default_view_mode = 'compact'  # 下方紧凑列出 可以通过M�
 
 # 其他配置也请前往git网址
 
+# ignore file
+# 在搜索目录下创建.ignore文件，把需要忽略的文件喝文件夹放入, 例如
+tags
+*.pyc
+*.pyo
+data/*
 ```
 
 3) 操作
