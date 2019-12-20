@@ -145,7 +145,7 @@ let g:ctrlp_custom_ignore = {
  CtrlPBuffer or :CtrlPMRU to invoke CtrlP in find buffer or find MRU file mode
 ```
 
-##### FZF + ag
+##### FZF + Fd
 
 CtrlP当开始打开的时候会有一点慢(缓存)，之后搜索开始挺快的，而FZF刚开始也很快，不会卡那么久，因此个人选择Fuzzy Finder
 
@@ -165,6 +165,9 @@ CtrlP当开始打开的时候会有一点慢(缓存)，之后搜索开始挺快�
 ```shell
 git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 ~/.fzf/install
+
+# fd 安装与使用请查看
+https://github.com/sharkdp/fd
 ```
 
 2)  配置
@@ -172,14 +175,23 @@ git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 ```shell
 # ctrlp和fzf都可以配置为ag
 
-fzf+ag 简直无敌~~~~
+# fzf + fd   快到飞起
+fzf搜索文件默认使用grep，而fd搜索速度要快于grep，因此可以配置fzf为fd
+export FZF_DEFAULT_COMMAND='fd --type file --follow --exclude *.py[co] --exclude bot'
 
+# 之前是使用下面ag。。。
+
+
+# fzf与ag
+fzf+ag
 # 默认也是在vim开启的路径下搜索 如果想要ingore某些文件夹
 export FZF_DEFAULT_COMMAND='ag -l --ignore bot/'
 # 如果不想每次开启终端都手动输入，可以，在~/.bash_proile中添加上述指令，然后
 source ~/.bashr_profile  # 将这句话添加到~/.bashrc即可
-
 # 具体配置可以在shell中输入ag -g即可
+
+
+
 
 ```
 
@@ -356,7 +368,7 @@ git clone https://github.com/scrooloose/nerdtree.git ~/.vim/bundle/nerdtree
 Pythoner必备
 
 ```shell
-1. Install syntastic (静态语法检查，不只是python, 这个插件会让vim wrriten很慢。。。。禁用。。。使用python-synstic)
+1. Install syntastic (静态语法检查，不只是python, 这个插件会让vim wrriten很慢。。。。需要将g:syntastic_enable_highlighting=0)
 	Plugin 'scrooloose/syntastic'   
 2. Install flake8
 	sudo apt install python-flake8  # python2
@@ -496,12 +508,14 @@ zM: Close all folds.
 ##### 排查Vim慢的方法
 
 ```shell
+# 打开vim输入以下指令
 :profile start profile.log
 :profile func *
 :profile file *
 " At this point do slow actions
 :profile pause
 :noautocmd qall!
+# 查看profile.log文件
 ```
 
 以上，欢迎大家分享补充，工欲善其事必先利其器，VIM很强大
