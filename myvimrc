@@ -1,0 +1,86 @@
+set encoding=utf-8
+set nocompatible
+set number
+set tabstop=4
+set expandtab  " tab转space
+set softtabstop=4
+set shiftwidth=4
+set hlsearch
+set incsearch
+set foldmethod=indent
+set nofoldenable
+set updatetime=500  " gitgutter check
+set cursorline " 凸显当前行
+
+" setlocal list
+" set listchars=tab:>~,trail:.
+
+" hi CursorLine cterm=NONE ctermbg=darkred ctermfg=white
+" hi CursorColumn cterm=NONE ctermbg=darkred ctermfg=white
+
+syntax sync minlines=256
+
+syntax on
+
+filetype off
+filetype indent on
+filetype plugin on
+
+set rtp+=~/.vim/bundle/Vundle.vim
+set rtp+=~/.fzf
+
+call vundle#begin()
+
+Plugin 'VundleVim/Vundle.vim'
+Plugin 'junegunn/fzf.vim'
+Plugin 'Valloric/YouCompleteMe'
+" Plugin 'majutsushi/tagbar'
+Plugin 'preservim/nerdtree'  " 目录树
+Plugin 'Raimondi/delimitMate'  " 括号补全
+Plugin 'itchyny/vim-cursorword' " 光标下通单词显示
+Plugin 'airblade/vim-gitgutter' " git修改显示
+Plugin 'tpope/vim-fugitive' " git command
+Plugin 'vim-airline/vim-airline' " 底部状态栏
+Plugin 'dyng/ctrlsf.vim'
+
+" Plugin 'maralla/validator.vim' " 语法
+" Plugin 'scrooloose/syntastic'
+
+call vundle#end()
+
+let g:fzf_tags_command = 'ctags -R'
+" let g:validator_lua_checkers = ['luacheck']
+" let g:syntastic_lua_checkers = ['luacheck', "luac"]
+let g:airline#extensions#tabline#enabled = 1
+" let g:airline#extensions#tabline#buffer_nr_show=1
+
+"let g:ctrlsf_ackprg = 'ag'
+"let g:ctrlsf_backend = "rg"
+let g:ctrlsf_default_view_mode = 'compact'
+let g:ctrlsf_search_mode = 'async'
+let g:ctrlsf_compact_winsize = '25%'
+
+" 快捷键绑定
+map <C-p> :FZF<CR>
+map <F2> :NERDTreeToggle<CR>
+map <C-n> :Buffers<CR>
+map <C-k> :CtrlSF<CR>
+nnoremap <C-\> :CtrlSF
+
+" colorscheme onedark
+colorscheme space-vim-dark
+
+if &term =~ "xterm"
+    " INSERT mode
+    let &t_SI = "\<Esc>[3 q" . "\<Esc>]12;white\x7"
+    " REPLACE mode
+    let &t_SR = "\<Esc>[3 q" . "\<Esc>]12;white\x7"
+    " NORMAL mode
+    let &t_EI = "\<Esc>[5 q" . "\<Esc>]12;white\x7"
+endif
+" 1 -> blinking block  闪烁的方块
+" 2 -> solid block  不闪烁的方块
+" 3 -> blinking underscore  闪烁的下划线
+" 4 -> solid underscore  不闪烁的下划线
+" 5 -> blinking vertical bar  闪烁的竖线
+" 6 -> solid vertical bar  不闪烁的竖线
