@@ -15,8 +15,10 @@ sh -c "$(wget https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install
 zsh中自带了很多git的快捷键，比如gst: git status
 
 ### vim
+安装bundle：git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+
 配置可直接copy: sample_vimrc -> ~/.vimrc
-vim ~/.vimrc  plugin install即可
+vim ~/.vimrc  PluginInstall即可
 
 vimrc中有快捷绑定设定，可自行修改：
 1. ctrl+p: fzf文件搜索
