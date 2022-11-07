@@ -1,5 +1,5 @@
 ### Window Terminal
-配置可直接copy：windows_terminal_setting
+配置可直接copy：sample_windows_terminal_setting
 快捷键：（可自行调整）
 shift alt +         : 垂直分屏
 shift alt =         : 水平分屏
@@ -15,7 +15,7 @@ sh -c "$(wget https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install
 zsh中自带了很多git的快捷键，比如gst: git status
 
 ### vim
-配置可直接copy: cp vimrc ~/.vimrc
+配置可直接copy: sample_vimrc -> ~/.vimrc
 vim ~/.vimrc  plugin install即可
 
 vimrc中有快捷绑定设定，可自行修改：
