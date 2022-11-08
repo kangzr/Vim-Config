@@ -68,7 +68,7 @@ map <C-k> :CtrlSF<CR>
 nnoremap <C-\> :CtrlSF
 
 " colorscheme onedark
-colorscheme space-vim-dark
+" colorscheme space-vim-dark
 
 if &term =~ "xterm"
     " INSERT mode

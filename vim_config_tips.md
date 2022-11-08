@@ -187,7 +187,7 @@ fzf+ag
 # 默认也是在vim开启的路径下搜索 如果想要ingore某些文件夹
 export FZF_DEFAULT_COMMAND='ag -l --ignore bot/'
 # 如果不想每次开启终端都手动输入，可以，在~/.bash_proile中添加上述指令，然后
-source ~/.bashr_profile  # 将这句话添加到~/.bashrc即可
+source ~/.bashrc_profile  # 将这句话添加到~/.bashrc即可
 # 具体配置可以在shell中输入ag -g即可
 
 
